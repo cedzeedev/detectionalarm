@@ -10,6 +10,7 @@ int tempo = 300;
 int activate = 1;
 int button_activate = 12;
 int led_active = 5;
+int tempo2 = 400;
 void setup() {
   Serial.begin(9600);
   pinMode(result_motion, INPUT);
@@ -25,7 +26,7 @@ void setup() {
 void loop() {
   if (digitalRead(button_activate) == 0) {
     activate = activate * -1;
-    delay(300);
+    lockedalarm_music();
   }
 
 
@@ -78,4 +79,31 @@ void stopalarm_music() {
   delay(tempo*2);
 
 
+}
+
+void lockedalarm_music() {
+  tone(passive, NOTE_C5 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_A4 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_E4 , tempo2 * 3);
+  delay(tempo2 * 3);
+  tone(passive, NOTE_C5 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_A4 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_D4 , tempo2 * 3);
+  delay(tempo2 * 3);
+  tone(passive, NOTE_C5 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_A4 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_C4 , tempo2 * 3);
+  delay(tempo2 * 3);
+  tone(passive, NOTE_B3 , tempo2 / 2);
+  delay(tempo2 / 2);
+  tone(passive, NOTE_D4 , tempo2 * 2);
+  delay(tempo2 * 2);
+
+  
 }
